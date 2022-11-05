@@ -24,12 +24,19 @@ add_to_cart.click()
 
 # For a list of element
 
-for i in list_of_books:
+for i in liste_livres:
     search_bar = driver.find_element(By.CLASS_NAME, "search-bar__input")
     search_bar.send_keys(i)
+    time.sleep(2)
     find_button = driver.find_element(By.CLASS_NAME, "search-bar__submit")
     find_button.click()
+    time.sleep(2)
     product_link = driver.find_element(By.CLASS_NAME, "product-item__info-inner")
     product_link.click()
-    product_link_2 = driver.find_element(By.CSS_SELECTOR, ".product-form__add-button.button.button--primary")
-    product_link_2.click()
+    time.sleep(2)
+    try:
+        product_link_2 = driver.find_element(By.CSS_SELECTOR, ".product-form__add-button.button.button--primary")
+        product_link_2.click()
+    except:
+        pass
+    time.sleep(4)
